@@ -1,10 +1,8 @@
 // Import styles for button from the styled-components
 import { ButtonContainerS, ButtonContentS } from "../styles/ButtonC.style";
 
-// Define type for Button props (expecting children to be a string)
-type ButtonT = {
-  children: string;
-};
+// Import button component
+import { ButtonT } from "../types/ButtonT";
 
 const ButtonC = (props: ButtonT) => {
   return (
