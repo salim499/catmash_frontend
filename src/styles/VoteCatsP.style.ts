@@ -1,6 +1,9 @@
 // Import styled components library for creating styled elements
 import styled from "styled-components";
 
+// Import colors
+import { Colors } from "./colors";
+
 // Styled component for the container of the "Vote Cats" section
 export const DivVoteContainerS = styled.div`
   display: flex;
@@ -18,7 +21,7 @@ export const VSBadgeS = styled.p`
   font-style: italic;
   padding: 10px 10px;
   border-radius: 50%;
-  color: rgba(47, 85, 150, 1);
-  border: 2px solid rgba(47, 85, 150, 1);
-  color: rgba(47, 85, 150, 1);
+  color: ${Colors.primary};
+  border: 2px solid ${Colors.primary};
+  color: ${Colors.primary};
 `;

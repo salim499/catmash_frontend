@@ -1,6 +1,9 @@
 // Import styled components library
 import styled, { keyframes, css } from "styled-components";
 
+// Import colors
+import { Colors } from "./colors";
+
 // Import types
 import { FigureCatST, ImageCatST } from "../types/FigureT";
 // Keyframes for animating background color and scale transformation
@@ -115,12 +118,12 @@ export const FigureSpanCatS = styled.span`
   min-width: 45px;
   min-height: 45px;
   margin-top: 25px;
-  border: 3px solid rgba(47, 85, 150, 1);
+  border: 3px solid ${Colors.primary};
   border-radius: 50%;
   font-size: 1.4rem;
   font-weight: bold;
   font-style: italic;
-  color: rgba(47, 85, 150, 1);
+  color: ${Colors.primary};
 `;
 
 // Styled component for the podium rank display inside the Figure
@@ -129,7 +132,7 @@ export const FigurePodiumSpanCatS = styled.span`
   font-size: 1.5rem;
   font-weight: bold;
   font-style: italic;
-  color: rgba(47, 85, 150, 1);
+  color: ${Colors.primary};
   text-align: center;
 `;
 
@@ -138,7 +141,7 @@ export const FigcaptionFirstSpanCatS = styled.span`
   font-size: 1.5rem;
   font-weight: bold;
   font-style: italic;
-  color: rgba(47, 85, 150, 1);
+  color: ${Colors.primary};
   text-align: center;
 `;
 
@@ -148,5 +151,5 @@ export const FigcaptionSecondSpanCatS = styled.span`
   font-size: 1.2rem;
   font-style: italic;
   text-align: center;
-  color: rgba(47, 85, 150, 1);
+  color: ${Colors.primary};
 `;

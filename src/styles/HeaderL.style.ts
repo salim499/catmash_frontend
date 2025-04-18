@@ -1,6 +1,9 @@
 // Import styled components library
 import styled from "styled-components";
 
+// Import colors
+import { Colors } from "./colors";
+
 // Container for the title section (image + nav)
 export const DivContainerTitleS = styled.div`
   display: flex;
@@ -26,15 +29,15 @@ export const NavS = styled.nav`
 
 // Individual navigation link style
 export const LinkS = styled.div`
-  color: rgba(47, 85, 150, 1);
+  color: ${Colors.primary};
   font-size: 1.5rem;
   font-weight: bold;
 
   &:hover {
-    color: rgba(226, 81, 77, 1); // Red on hover
+    color: ${Colors.crimson};
   }
 
   &:active {
-    font-size: 1.4rem; // Slightly smaller on click
+    font-size: 1.4rem;
   }
 `;

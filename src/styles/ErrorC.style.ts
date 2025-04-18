@@ -1,24 +1,27 @@
 // Import styled components library
 import styled from "styled-components";
 
+// Import colors
+import { Colors } from "./colors";
+
 // Wrapper for the error page, centered with red text
 export const ErrorWrapperS = styled.div`
-  color: #d32f2f; // Red color for the error message
-  min-height: 100vh; // Full viewport height to center content vertically
+  color: ${Colors.crimson};
+  min-height: 100vh;
   display: flex;
-  flex-direction: column; // Stack children vertically
-  align-items: center; // Center horizontally
-  justify-content: center; // Center vertically
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 // Emoji styling for error illustration
 export const EmojiS = styled.div`
-  margin-bottom: 0.5rem; // Space below the emoji
-  font-size: 3rem; // Large size for the emoji
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
 `;
 
 // Styling for the error message text
 export const MessageS = styled.p`
-  text-align: center; // Center-align the text
-  font-size: 1.1rem; // Slightly larger font for readability
+  text-align: center;
+  font-size: 1.1rem;
 `;

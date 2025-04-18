@@ -1,34 +1,32 @@
 // Import styled-components library for creating styled elements
 import styled from "styled-components";
 
+// Import colors
+import { Colors } from "./colors";
+
 // Container for the button, used to center the button on the page
 export const ButtonContainerS = styled.div`
-  margin-top: 50px; // Adds space on top of the button container
-  display: flex; // Uses flexbox for centering
-  justify-content: center; // Centers the button horizontally
-  align-items: center; // Centers the button vertically
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 // Styles for the button itself
 export const ButtonContentS = styled.button`
-  color: rgba(255, 255, 255, 1); // White text color
-  background-color: rgba(47, 85, 150, 1); // Blue background color
-  padding: 20px 30px; // Padding around the button text (top/bottom and left/right)
-  border: 2px solid white; // White border around the button
-  border-radius: 50%; // Makes the button round
-  font-size: 1rem; // Sets the font size
-  font-weight: bold; // Makes the text bold
-  font-style: italic; // Makes the text italicized
+  color: ${Colors.white};
+  background-color: ${Colors.primary};
+  padding: 20px 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: italic;
 
   // Hover effect for when the user hovers over the button
   &:hover {
-    background-color: rgba(
-      226,
-      81,
-      77,
-      1
-    ); // Changes background to red on hover
-    cursor: pointer; // Changes cursor to a pointer on hover
+    background-color: ${Colors.crimson};
+    cursor: pointer;
   }
 
   // Active effect for when the button is clicked
