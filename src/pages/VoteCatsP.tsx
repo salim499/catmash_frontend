@@ -110,34 +110,27 @@ const VoteCatsP = () => {
       {/* Container to hold the two cats and voting logic */}
       <DivVoteContainerS>
         {/* Display the left cat if available */}
-
-        <FigureC
-          handleVoteCat={() => handleVoteCat(left)}
-          cat={{
-            id: "MTgwODA3MA",
-            name: "chat 1",
-            url: "http://24.media.tumblr.com/tumblr_m82woaL5AD1rro1o5o1_1280.jpg",
-            score: 0,
-          }}
-          rotateDirection={left}
-        />
+        {catLeft ? (
+          <FigureC
+            handleVoteCat={() => handleVoteCat(left)}
+            cat={catLeft}
+            rotateDirection={left}
+          />
+        ) : null}
 
         {/* Display the "VS" badge between the two cats */}
-        <VSBadgeS>VS</VSBadgeS>
+        {catLeft && catRight ? <VSBadgeS>VS</VSBadgeS> : null}
 
         {/* Display the right cat if available */}
-
-        <FigureC
-          handleVoteCat={() => handleVoteCat(right)}
-          cat={{
-            id: "tt",
-            name: "chat 2",
-            url: "http://24.media.tumblr.com/tumblr_m29a9d62C81r2rj8po1_500.jpg",
-            score: 0,
-          }}
-          rotateDirection={right}
-        />
+        {catRight ? (
+          <FigureC
+            handleVoteCat={() => handleVoteCat(right)}
+            cat={catRight}
+            rotateDirection={right}
+          />
+        ) : null}
       </DivVoteContainerS>
+
       {/* Button to view the cat ranking page */}
       <Link to="/show-cats">
         <ButtonC>See the cat ranking</ButtonC>
