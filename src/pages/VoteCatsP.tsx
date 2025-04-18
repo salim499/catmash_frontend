@@ -1,5 +1,5 @@
 // Import from react
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // Import styles
 import { DivVoteContainerS, VSBadgeS } from "../styles/VoteCatsP.style";
 
@@ -32,6 +32,30 @@ const VoteCatsP = () => {
         ? 1
         : 0,
   });
+
+  // Side effect to update cats when the fetched data changes
+  useEffect(() => {
+    if (cats && cats.length === 2) {
+      // Add the fetched cat IDs to the exclude list to avoid duplicates
+      cats
+        .map((e: CatT) => e.id)
+        .forEach((element: string) => {
+          setExcludeIds((excludeIds) => [...excludeIds, element]);
+        });
+
+      // Set the left and right cats to vote on
+      setCatLeft(cats[0]);
+      setCatRight(cats[1]);
+    } else if (cat && catLeft === null) {
+      // If only one cat is fetched and the left cat is null, set it as the left cat
+      setExcludeIds((excludeIds) => [...excludeIds, cat.id]);
+      setCatLeft(cat);
+    } else if (cat && catRight === null) {
+      // If only one cat is fetched and the right cat is null, set it as the right cat
+      setExcludeIds((excludeIds) => [...excludeIds, cat.id]);
+      setCatRight(cat);
+    }
+  }, [cats, cat]);
 
   const handleVoteCat = async (direction: string) => {};
 
