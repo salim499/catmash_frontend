@@ -14,6 +14,6 @@ export const DivContainerS = styled.div`
   // Adjust margin for smaller screens
   @media (max-width: 768px) {
     margin-right: 2px;
-    margin-left: 2px; // Reduces margin on mobile devices
+    margin-left: 2px;
   }
 `;
