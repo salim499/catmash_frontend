@@ -104,12 +104,12 @@ export const FigureSpanCatS = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  min-width: 45px;
+  min-height: 45px;
   margin-top: 25px;
   border: 3px solid rgba(47, 85, 150, 1);
   border-radius: 50%;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
   font-style: italic;
   color: rgba(47, 85, 150, 1);
