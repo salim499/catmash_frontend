@@ -18,9 +18,11 @@ import FigureC from "../components/FigureC";
 import LoaderC from "../components/LoaderC";
 import ErrorC from "../components/ErrorC";
 import ButtonC from "../components/ButtonC";
+import PaginationC from "../components/PaginationC";
 
 // Import custom hooks
 import UseGetCats from "../hooks/UseGetCats";
+import UseGetCatsCount from "../hooks/UseGetCountCat";
 import UseIsScreenWidthLessOrEqual from "../hooks/UseIsScreenWidthLessOrEqual";
 
 const ShowCatsP = () => {
@@ -35,7 +37,9 @@ const ShowCatsP = () => {
     limit: 9,
     offset: (page - 1) * 9,
   });
-  console.log(error);
+
+  // Fetch the total number of cats for pagination management
+  const { numberOfCats } = UseGetCatsCount();
 
   // If everything is fine
   return (
@@ -53,6 +57,14 @@ const ShowCatsP = () => {
             />
           ))}
       </DivShowCatsContainerS>
+
+      {/* Pagination component */}
+      <PaginationC
+        page={page}
+        setPage={setPage}
+        limitPages={Math.floor(numberOfCats / 9) + 1}
+      />
+
       {/* Button to navigate to the vote page */}
       <Link to="/vote-cats">
         <ButtonC>Choose my cat</ButtonC>
