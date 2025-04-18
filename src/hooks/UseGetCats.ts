@@ -1,6 +1,7 @@
 // Import SWR for data fetching and caching
 import useSWR from "swr";
-// Import the fetcher function (typically a wrapper around fetch/axios)
+
+// Import the fetcher function
 import fetcher from "../libs/Fetcher";
 
 // Import the type for the hook's props
