@@ -3,8 +3,11 @@ import useSWR from "swr";
 // Import the fetcher function (typically a wrapper around fetch/axios)
 import fetcher from "../libs/Fetcher";
 
+// Import the type for the hook's props
+import { UseGetCatsPropsT } from "../types/UseGetCatsPropsT";
+
 // Custom hook to fetch a paginated list of cats from the API
-const UseGetCats = (props: any) => {
+const UseGetCats = (props: UseGetCatsPropsT) => {
   // Destructure and fetch data using SWR
   const { data, error, isLoading } = useSWR(
     // Construct the API endpoint with pagination params
