@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 // Import SWR for api interactions
 import { mutate } from "swr";
 
+// Import Link for navigation
+import { Link } from "react-router-dom";
+
 // Import styles
 import { DivShowCatsContainerS } from "../styles/ShowCatsP.style";
 
@@ -14,6 +17,7 @@ import { CatT } from "../types/CatT";
 import FigureC from "../components/FigureC";
 import LoaderC from "../components/LoaderC";
 import ErrorC from "../components/ErrorC";
+import ButtonC from "../components/ButtonC";
 
 // Import custom hooks
 import UseGetCats from "../hooks/UseGetCats";
@@ -49,6 +53,10 @@ const ShowCatsP = () => {
             />
           ))}
       </DivShowCatsContainerS>
+      {/* Button to navigate to the vote page */}
+      <Link to="/vote-cats">
+        <ButtonC>Choose my cat</ButtonC>
+      </Link>
     </>
   );
 };
