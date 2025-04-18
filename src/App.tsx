@@ -1,5 +1,6 @@
+import LoaderC from "./components/LoaderC";
 const App = () => {
-  return <div>App</div>;
+  return <LoaderC />;
 };
 
 export default App;
