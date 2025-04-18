@@ -14,16 +14,16 @@ import { DivShowCatsContainerS } from "../styles/ShowCatsP.style";
 import { CatT } from "../types/CatT";
 
 // Import components
-import FigureC from "../components/FigureC";
-import LoaderC from "../components/LoaderC";
-import ErrorC from "../components/ErrorC";
-import ButtonC from "../components/ButtonC";
-import PaginationC from "../components/PaginationC";
+import Figure from "../components/FigureC";
+import Button from "../components/ButtonC";
+import Loader from "../components/LoaderC";
+import ErrorMessage from "../components/ErrorC";
+import Pagination from "../components/PaginationC";
 
 // Import custom hooks
+import UseIsScreenWidthLessOrEqual from "../hooks/UseIsScreenWidthLessOrEqual";
 import UseGetCats from "../hooks/UseGetCats";
 import UseGetCatsCount from "../hooks/UseGetCountCat";
-import UseIsScreenWidthLessOrEqual from "../hooks/UseIsScreenWidthLessOrEqual";
 
 const ShowCatsP = () => {
   // State to manage the current pagination
@@ -41,33 +41,42 @@ const ShowCatsP = () => {
   // Fetch the total number of cats for pagination management
   const { numberOfCats } = UseGetCatsCount();
 
+  // When the pagination changes, update the SWR cache (forces data reload)
+  useEffect(() => {
+    mutate({ limit: 10, offset: page - 1 });
+  }, [page]);
+
+  // If data is still loading
+  if (isLoading) return <Loader />;
+
+  // If there is error
+  if (error) return <ErrorMessage />;
+
   // If everything is fine
   return (
     <>
       {/* Main container for the cats cards */}
       <DivShowCatsContainerS>
-        {cats &&
-          cats.map((cat: CatT, index: number) => (
-            <FigureC
-              key={cat.id}
-              index={index}
-              page={page}
-              isScreenWidthLessOrEqual={isScreenWidthLessOrEqual}
-              cat={cat}
-            />
-          ))}
+        {cats.map((cat: CatT, index: number) => (
+          <Figure
+            key={cat.id}
+            index={index}
+            page={page}
+            isScreenWidthLessOrEqual={isScreenWidthLessOrEqual}
+            cat={cat}
+          />
+        ))}
       </DivShowCatsContainerS>
 
       {/* Pagination component */}
-      <PaginationC
+      <Pagination
         page={page}
         setPage={setPage}
         limitPages={Math.floor(numberOfCats / 9) + 1}
       />
-
       {/* Button to navigate to the vote page */}
       <Link to="/vote-cats">
-        <ButtonC>Choose my cat</ButtonC>
+        <Button>Choose my cat</Button>
       </Link>
     </>
   );
