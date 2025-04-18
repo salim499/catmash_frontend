@@ -1,10 +1,13 @@
 // Import styles
 import { ErrorWrapperS, EmojiS, MessageS } from "../styles/ErrorC.style";
 
+// Import types
+import { PropsErrorC } from "../types/ErrorT";
+
 // ─────────────────────────────────────────────
 // Error component
 // ─────────────────────────────────────────────
-const ErrorC = (props: any) => {
+const ErrorC = (props: PropsErrorC) => {
   return (
     <ErrorWrapperS>
       {/* Display Emoji */}
