@@ -1,13 +1,38 @@
+// Import from react
+import { useState } from "react";
 // Import styles
 import { DivVoteContainerS, VSBadgeS } from "../styles/VoteCatsP.style";
 
 // Import constants
 import { left, right } from "../constants";
 
+// Import types
+import { CatT } from "../types/CatT";
+
+// Import hooks
+import UseGetCat from "../hooks/UseGetCat";
+
 // Import components
 import FigureC from "../components/FigureC";
 
 const VoteCatsP = () => {
+  // States
+  const [excludeIds, setExcludeIds] = useState<string[]>([]);
+  const [catLeft, setCatLeft] = useState<CatT | null>(null);
+  const [catRight, setCatRight] = useState<CatT | null>(null);
+
+  // Get random cats
+  const { cats, cat, error, isLoading } = UseGetCat({
+    url: "cats/random",
+    ids: excludeIds,
+    limit:
+      catLeft === null && catRight === null
+        ? 2
+        : catLeft === null || catRight === null
+        ? 1
+        : 0,
+  });
+
   const handleVoteCat = async (direction: string) => {};
 
   return (
