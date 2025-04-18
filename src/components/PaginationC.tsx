@@ -5,12 +5,8 @@ import {
   PageInfoS,
 } from "../styles/PaginationC.style";
 
-type PaginationPropsT = {
-  page: number;
-  setPage: (page: number) => void;
-  limitPages: number;
-};
-
+// Import types
+import { PaginationPropsT } from "../types/PaginationT";
 // ─────────────────────────────────────────────
 // Pagination component to navigate through pages
 // ─────────────────────────────────────────────
