@@ -1,6 +1,9 @@
 // Import from react
 import { useState, useEffect } from "react";
 
+// Import Link for navigation
+import { Link } from "react-router-dom";
+
 // Import Axios for making HTTP requests
 import api from "../libs/Axios";
 
@@ -20,6 +23,7 @@ import UseGetCat from "../hooks/UseGetCat";
 import FigureC from "../components/FigureC";
 import LoaderC from "../components/LoaderC";
 import ErrorC from "../components/ErrorC";
+import ButtonC from "../components/ButtonC";
 
 const VoteCatsP = () => {
   // States
@@ -134,6 +138,10 @@ const VoteCatsP = () => {
           rotateDirection={right}
         />
       </DivVoteContainerS>
+      {/* Button to view the cat ranking page */}
+      <Link to="/show-cats">
+        <ButtonC>See the cat ranking</ButtonC>
+      </Link>
     </>
   );
 };
