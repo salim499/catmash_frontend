@@ -1,40 +1,39 @@
-// Import components
-import FigureC from "../components/FigureC";
+// Import from react
+import { useState, useEffect } from "react";
 
-const cats = [
-  {
-    id: "MTgwODA3MA",
-    name: "chat 1",
-    url: "http://24.media.tumblr.com/tumblr_m82woaL5AD1rro1o5o1_1280.jpg",
-    score: 0,
-  },
-  {
-    id: "tt",
-    name: "chat 2",
-    url: "http://24.media.tumblr.com/tumblr_m29a9d62C81r2rj8po1_500.jpg",
-    score: 0,
-  },
-  {
-    id: "bmp",
-    name: "chat 3",
-    url: "http://25.media.tumblr.com/tumblr_m4bgd9OXmw1qioo2oo1_500.jpg",
-    score: 0,
-  },
-];
+// Import SWR for api interactions
+import { mutate } from "swr";
+
+// Import components
+import LoaderC from "../components/LoaderC";
+import ErrorC from "../components/ErrorC";
+
+// Import custom hooks
+import UseGetCats from "../hooks/UseGetCats";
+
 const ShowCatsP = () => {
-  return (
-    <div>
-      {cats.map((cat: any, index: number) => (
-        <FigureC
-          key={cat.id}
-          index={index}
-          page={1}
-          isScreenWidthLessOrEqual={false}
-          cat={cat}
-        />
-      ))}
-    </div>
-  );
+  // State to manage the current pagination
+  const [page, setPage] = useState(1);
+
+  // Fetch the list of cats with pagination (9 cats per page)
+  const { cats, error, isLoading } = UseGetCats({
+    limit: 9,
+    offset: (page - 1) * 9,
+  });
+
+  // When the pagination changes, update the SWR cache (forces data reload)
+  useEffect(() => {
+    mutate({ limit: 10, offset: page - 1 });
+  }, [page]);
+
+  // If data is still loading
+  if (isLoading) return <LoaderC />;
+
+  // If there is error
+  if (error) return <ErrorC />;
+
+  // If everything is fine
+  return <>no error</>;
 };
 
 export default ShowCatsP;

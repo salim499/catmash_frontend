@@ -1,7 +1,7 @@
-import api from "./axios";
+import Api from "./Axios";
 
 const Fetcher = async (url: string) => {
-  const res = await api.get(url);
+  const res = await Api.get(url);
   return res.data;
 };
 
