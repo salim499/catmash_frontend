@@ -1,4 +1,6 @@
 import styled, { keyframes, css } from "styled-components";
+// Import types
+import { FigureCatST, ImageCatST } from "../types/FigureT";
 
 const backgroundAndZoom = (bg: string) => keyframes`
   0% {
@@ -18,7 +20,7 @@ const backgroundAndZoom = (bg: string) => keyframes`
   }rgb(226,81,77)
 `;
 
-export const FigureCatS = styled.figure<any>`
+export const FigureCatS = styled.figure<FigureCatST>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,7 +81,7 @@ export const FigureCatS = styled.figure<any>`
   }
 `;
 
-export const ImageCatS = styled.img<any>`
+export const ImageCatS = styled.img<ImageCatST>`
   width: ${(props) => (props.width ? props.width : "330px")};
   height: ${(props) => (props.height ? props.height : "330px")};
   border-radius: 50%;

@@ -9,8 +9,11 @@ import {
   FigureSpanCatS,
 } from "../styles/FigureC.style";
 
+// Import types
+import { FigureT } from "../types/FigureT";
+
 // Figure component used to display a cat's image, name, score, and optionally a ranking badge
-const Figure = (props: any) => {
+const Figure = (props: FigureT) => {
   return (
     <>
       <FigureCatS
