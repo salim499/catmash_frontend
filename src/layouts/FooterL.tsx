@@ -1,11 +1,11 @@
 // Import styles
-import { FooterContainerS } from "../styles/FooterC.style";
+import { FooterContainerS } from "../styles/FooterL.style";
 
 // ─────────────────────────────────────────────
 // Footer component
 // ─────────────────────────────────────────────
-const Footer = () => {
+const FooterL = () => {
   return <FooterContainerS />;
 };
 
-export default Footer;
+export default FooterL;
