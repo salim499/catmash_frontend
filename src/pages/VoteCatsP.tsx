@@ -18,6 +18,8 @@ import UseGetCat from "../hooks/UseGetCat";
 
 // Import components
 import FigureC from "../components/FigureC";
+import LoaderC from "../components/LoaderC";
+import ErrorC from "../components/ErrorC";
 
 const VoteCatsP = () => {
   // States
@@ -91,6 +93,13 @@ const VoteCatsP = () => {
       console.error("Error voting for cat:", error);
     }
   };
+
+  // If data is still loading
+  if (isLoading) return <LoaderC />;
+
+  // If there is error
+  if (error) return <ErrorC />;
+  // Return the component's JSX structure
 
   return (
     <>
