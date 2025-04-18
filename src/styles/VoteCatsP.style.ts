@@ -1,5 +1,7 @@
+// Import styled components library for creating styled elements
 import styled from "styled-components";
 
+// Styled component for the container of the "Vote Cats" section
 export const DivVoteContainerS = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -9,6 +11,7 @@ export const DivVoteContainerS = styled.div`
   margin-top: 50px;
 `;
 
+// Styled component for the badge used in the "Vote Cats" section
 export const VSBadgeS = styled.p`
   font-size: 2rem;
   font-weight: bold;

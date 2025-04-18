@@ -1,7 +1,9 @@
 // Import from react
 import { useEffect, useState } from "react";
 
+// ─────────────────────────────────────────────
 // Custom hook to check if the screen width is less than or equal to a given breakpoint
+// ─────────────────────────────────────────────
 const UseIsScreenWidthLessOrEqual = (breakpoint: number) => {
   // State to track whether the screen is less than or equal to the breakpoint
   const [isScreenWidthLessOrEqual, setIsScreenWidthLessOrEqual] =

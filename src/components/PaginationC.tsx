@@ -1,12 +1,9 @@
 // Import styles
-import {
-  PaginationContainerS,
-  PageButtonS,
-  PageInfoS,
-} from "../styles/PaginationC.style";
+import { PaginationContainerS, PageButtonS } from "../styles/PaginationC.style";
 
 // Import types
 import { PaginationPropsT } from "../types/PaginationT";
+
 // ─────────────────────────────────────────────
 // Pagination component to navigate through pages
 // ─────────────────────────────────────────────
@@ -21,8 +18,18 @@ const PaginationC = (props: PaginationPropsT) => {
         Previous
       </PageButtonS>
 
-      {/* Display the current page number */}
-      <PageInfoS>Page {props.page}</PageInfoS>
+      {/* Page numbers list */}
+      {Array.from({ length: props.limitPages }, (_, i) => i + 1).map(
+        (pageNum) => (
+          <PageButtonS
+            key={pageNum}
+            onClick={() => props.setPage(pageNum)}
+            disabled={pageNum === props.page}
+          >
+            {pageNum}
+          </PageButtonS>
+        )
+      )}
 
       {/* Next button - disabled if on the last page */}
       <PageButtonS

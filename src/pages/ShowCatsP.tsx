@@ -1,8 +1,5 @@
 // Import from react
-import { useState, useEffect } from "react";
-
-// Import SWR for api interactions
-import { mutate } from "swr";
+import { useState } from "react";
 
 // Import Link for navigation
 import { Link } from "react-router-dom";
@@ -13,6 +10,11 @@ import { DivShowCatsContainerS } from "../styles/ShowCatsP.style";
 // Import types
 import { CatT } from "../types/CatT";
 
+// Import custom hooks
+import UseIsScreenWidthLessOrEqual from "../hooks/UseIsScreenWidthLessOrEqual";
+import UseGetCats from "../hooks/UseGetCats";
+import UseGetCatsCount from "../hooks/UseGetCountCat";
+
 // Import components
 import Figure from "../components/FigureC";
 import Button from "../components/ButtonC";
@@ -20,11 +22,9 @@ import Loader from "../components/LoaderC";
 import ErrorMessage from "../components/ErrorC";
 import Pagination from "../components/PaginationC";
 
-// Import custom hooks
-import UseIsScreenWidthLessOrEqual from "../hooks/UseIsScreenWidthLessOrEqual";
-import UseGetCats from "../hooks/UseGetCats";
-import UseGetCatsCount from "../hooks/UseGetCountCat";
-
+// ─────────────────────────────────────────────
+// Page component that displays the ranked list of cats
+// ─────────────────────────────────────────────
 const ShowCatsP = () => {
   // State to manage the current pagination
   const [page, setPage] = useState(1);
@@ -38,13 +38,10 @@ const ShowCatsP = () => {
     offset: (page - 1) * 9,
   });
 
+  console.log(cats);
+
   // Fetch the total number of cats for pagination management
   const { numberOfCats } = UseGetCatsCount();
-
-  // When the pagination changes, update the SWR cache (forces data reload)
-  useEffect(() => {
-    mutate({ limit: 10, offset: page - 1 });
-  }, [page]);
 
   // If data is still loading
   if (isLoading) return <Loader />;

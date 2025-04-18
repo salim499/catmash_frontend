@@ -38,9 +38,3 @@ export const PageButtonS = styled.button<{ disabled?: boolean }>`
         : "#e0e0e0"}; // Change background color on hover (if not disabled)
   }
 `;
-
-// Display text for current page or pagination info
-export const PageInfoS = styled.span`
-  font-size: 14px; // Set font size
-  font-weight: 500; // Medium font weight
-`;

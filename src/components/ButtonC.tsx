@@ -4,6 +4,9 @@ import { ButtonContainerS, ButtonContentS } from "../styles/ButtonC.style";
 // Import button component
 import { ButtonT } from "../types/ButtonT";
 
+// ─────────────────────────────────────────────
+// Button component
+// ─────────────────────────────────────────────
 const ButtonC = (props: ButtonT) => {
   return (
     // Outer container for button styling

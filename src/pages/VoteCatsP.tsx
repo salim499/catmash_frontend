@@ -25,6 +25,9 @@ import LoaderC from "../components/LoaderC";
 import ErrorC from "../components/ErrorC";
 import ButtonC from "../components/ButtonC";
 
+// ─────────────────────────────────────────────
+// Page component where users can vote between two random cats
+// ─────────────────────────────────────────────
 const VoteCatsP = () => {
   // States
   const [excludeIds, setExcludeIds] = useState<string[]>([]);
@@ -80,6 +83,7 @@ const VoteCatsP = () => {
 
     try {
       // Send a request to increment the score of the voted cat
+      console.log(votedCat);
       await api.put(`cats/${votedCat.id}/score`, { score: votedCat.score + 1 });
 
       // Fetch the updated cat data from the API

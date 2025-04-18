@@ -1,4 +1,4 @@
-// Import style
+// Import styles
 import {
   FigureCatS,
   ImageCatS,
@@ -12,7 +12,9 @@ import {
 // Import types
 import { FigureT } from "../types/FigureT";
 
+// ─────────────────────────────────────────────
 // Figure component used to display a cat's image, name, score, and optionally a ranking badge
+// ─────────────────────────────────────────────
 const Figure = (props: FigureT) => {
   return (
     <>

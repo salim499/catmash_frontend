@@ -7,6 +7,7 @@ import fetcher from "../libs/Fetcher";
 // Import types
 import { UseGetCatPropsT } from "../types/UseGetCatPropsT";
 
+// Custom hook to fetch a cat based on id and other provided props
 const UseGetCat = (props: UseGetCatPropsT) => {
   // Construct query parameters for the URL
   const query = [

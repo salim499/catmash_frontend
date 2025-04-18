@@ -1,9 +1,12 @@
 // Import SWR for data fetching
 import useSWR from "swr";
+
 // Import the fetcher function used by SWR
 import fetcher from "../libs/Fetcher";
 
+// ─────────────────────────────────────────────
 // Custom hook to fetch the total number of cats from the API
+// ─────────────────────────────────────────────
 const UseGetCatsCount = () => {
   // Fetch the data from the `/cats-count` endpoint
   const { data, error, isLoading } = useSWR(`/cats/count`, fetcher);
