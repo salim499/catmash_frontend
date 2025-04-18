@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const ErrorWrapperS = styled.div`
-  min-height: 100vh;
   color: #d32f2f;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
