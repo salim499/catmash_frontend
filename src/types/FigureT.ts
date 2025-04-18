@@ -1,11 +1,13 @@
 // Import types
 import { CatT } from "./CatT";
+// Import constants
+import { left, right } from "../constants/index";
 
 export type FigureT = {
   isScreenWidthLessOrEqual?: boolean;
   index?: number;
   page?: number;
-  rotateDirection?: "left" | "right";
+  rotateDirection?: typeof left | typeof right;
   cat: CatT;
   handleVoteCat?: () => void;
 };
