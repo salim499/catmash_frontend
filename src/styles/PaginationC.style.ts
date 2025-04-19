@@ -7,6 +7,7 @@ import { Colors } from "./colors";
 // Container for pagination controls
 export const PaginationContainerS = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 16px;
