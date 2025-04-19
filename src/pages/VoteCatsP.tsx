@@ -72,33 +72,38 @@ const VoteCatsP = () => {
 
   // Function to handle voting for a cat (left or right)
   const handleVoteCat = async (direction: string) => {
-    // Determine which cat was voted for based on the direction (left or right)
-    const votedCat = direction === left ? catLeft : catRight;
+    // Verify that there is two cats at least
+    if (catLeft && catRight) {
+      // Determine which cat was voted for based on the direction (left or right)
+      const votedCat = direction === left ? catLeft : catRight;
 
-    // Determine which cat to clear after voting
-    const clearCat = direction === left ? setCatRight : setCatLeft;
+      // Determine which cat to clear after voting
+      const clearCat = direction === left ? setCatRight : setCatLeft;
 
-    // If no cat was selected to vote for, exit early
-    if (!votedCat) return;
+      // If no cat was selected to vote for, exit early
+      if (!votedCat) return;
 
-    try {
-      // Send a request to increment the score of the voted cat
-      console.log(votedCat);
-      await api.put(`cats/${votedCat.id}/score`, { score: votedCat.score + 1 });
+      try {
+        // Send a request to increment the score of the voted cat
+        console.log(votedCat);
+        await api.put(`cats/${votedCat.id}/score`, {
+          score: votedCat.score + 1,
+        });
 
-      // Fetch the updated cat data from the API
-      const { data } = await api.get(
-        `${process.env.REACT_APP_API_URL}/cats/${votedCat.id}`
-      );
+        // Fetch the updated cat data from the API
+        const { data } = await api.get(
+          `${process.env.REACT_APP_API_URL}/cats/${votedCat.id}`
+        );
 
-      // Update the state with the new cat data
-      direction === left ? setCatLeft(data) : setCatRight(data);
+        // Update the state with the new cat data
+        direction === left ? setCatLeft(data) : setCatRight(data);
 
-      // Clear the opposite cat to trigger the next fetch
-      clearCat(null);
-    } catch (error) {
-      // Log any error that occurs during the vote process
-      console.error("Error voting for cat:", error);
+        // Clear the opposite cat to trigger the next fetch
+        clearCat(null);
+      } catch (error) {
+        // Log any error that occurs during the vote process
+        console.error("Error voting for cat:", error);
+      }
     }
   };
 
