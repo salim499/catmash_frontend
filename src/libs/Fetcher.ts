@@ -1,4 +1,4 @@
-// Import the pre-configured Axios instance
+// Import the pre configured Axios instance
 import api from "./axios";
 
 // ─────────────────────────────────────────────
