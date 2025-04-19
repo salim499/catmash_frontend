@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 // Import Axios for making HTTP requests
-import Api from "../libs/Axios";
+import api from "../libs/axios";
 
 // Import styles
 import { DivVoteContainerS, VSBadgeS } from "../styles/VoteCatsP.style";
@@ -86,12 +86,12 @@ const VoteCatsP = () => {
       try {
         // Send a request to increment the score of the voted cat
         console.log(votedCat);
-        await Api.put(`cats/${votedCat.id}/score`, {
+        await api.put(`cats/${votedCat.id}/score`, {
           score: votedCat.score + 1,
         });
 
         // Fetch the updated cat data from the API
-        const { data } = await Api.get(
+        const { data } = await api.get(
           `${process.env.REACT_APP_API_URL}/cats/${votedCat.id}`
         );
 

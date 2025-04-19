@@ -2,7 +2,7 @@
 import useSWR from "swr";
 
 // Import the fetcher function used by SWR
-import fetcher from "../libs/Fetcher";
+import fetcher from "../libs/fetcher";
 
 // ─────────────────────────────────────────────
 // Custom hook to fetch the total number of cats from the API

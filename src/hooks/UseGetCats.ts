@@ -2,7 +2,7 @@
 import useSWR from "swr";
 
 // Import the fetcher function
-import fetcher from "../libs/Fetcher";
+import fetcher from "../libs/fetcher";
 
 // Import the type for the hook's props
 import { UseGetCatsPropsT } from "../types/UseGetCatsPropsT";
