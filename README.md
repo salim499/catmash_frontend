@@ -1,3 +1,13 @@
+# 🐱 Cat Mash - Frontend
+
+Frontend de l'application **Cat Mash**, un jeu où les utilisateurs votent pour le chat le plus mignon entre deux choix aléatoires. Après chaque vote, le jeu choisit le chat le plus mignon.
+
+Le frontend est construit avec **React** et se connecte à l'API backend pour récupérer les données des chats et enregistrer les votes.
+
+# Cat Mash Backend README
+
+[Backend documentation](https://github.com/salim499/catmash_backend/edit/master/README.md)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
