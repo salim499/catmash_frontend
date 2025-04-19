@@ -16,11 +16,11 @@ import UseGetCats from "../hooks/UseGetCats";
 import UseGetCatsCount from "../hooks/UseGetCountCat";
 
 // Import components
-import Figure from "../components/FigureC";
-import Button from "../components/ButtonC";
-import Loader from "../components/LoaderC";
-import ErrorMessage from "../components/ErrorC";
-import Pagination from "../components/PaginationC";
+import FigureC from "../components/FigureC";
+import ButtonC from "../components/ButtonC";
+import LoaderC from "../components/LoaderC";
+import ErrorMessageC from "../components/ErrorC";
+import PaginationC from "../components/PaginationC";
 
 // ─────────────────────────────────────────────
 // Page component that displays the ranked list of cats
@@ -44,10 +44,10 @@ const ShowCatsP = () => {
   const { numberOfCats } = UseGetCatsCount();
 
   // If data is still loading
-  if (isLoading) return <Loader />;
+  if (isLoading) return <LoaderC />;
 
   // If there is error
-  if (error) return <ErrorMessage />;
+  if (error) return <ErrorMessageC />;
 
   // If everything is fine
   return (
@@ -55,7 +55,7 @@ const ShowCatsP = () => {
       {/* Main container for the cats cards */}
       <DivShowCatsContainerS>
         {cats.map((cat: CatT, index: number) => (
-          <Figure
+          <FigureC
             key={cat.id}
             index={index}
             page={page}
@@ -66,14 +66,14 @@ const ShowCatsP = () => {
       </DivShowCatsContainerS>
 
       {/* Pagination component */}
-      <Pagination
+      <PaginationC
         page={page}
         setPage={setPage}
         limitPages={Math.floor(numberOfCats / 9) + 1}
       />
       {/* Button to navigate to the vote page */}
       <Link to="/vote-cats">
-        <Button>Choose my cat</Button>
+        <ButtonC>Choose my cat</ButtonC>
       </Link>
     </>
   );
