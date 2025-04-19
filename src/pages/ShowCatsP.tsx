@@ -38,16 +38,11 @@ const ShowCatsP = () => {
     offset: (page - 1) * 9,
   });
 
-  console.log(cats);
-
   // Fetch the total number of cats for pagination management
   const { numberOfCats } = UseGetCatsCount();
 
   // If data is still loading
   if (isLoading) return <LoaderC />;
-
-  // If there is error
-  if (error) return <ErrorMessageC />;
 
   // If everything is fine
   return (

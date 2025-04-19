@@ -48,6 +48,7 @@ const VoteCatsP = () => {
 
   // Side effect to update cats when the fetched data changes
   useEffect(() => {
+    // Case there is two cats images to chose
     if (cats && cats.length === 2) {
       // Add the fetched cat IDs to the exclude list to avoid duplicates
       cats
